@@ -26,12 +26,13 @@ module.exports = async (req, res) => {
     };
 
     const response = await xumm.payload.create(payload);
+
     res.status(200).json({
-      sign_url: response.next.always,
-      qr: response.refs.qr_png
+      sign_url: response?.next?.always,
+      qr: response?.refs?.qr_png
     });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Payload creation failed' });
+  } catch (err) {
+    console.error("Payload creation error:", err.message);
+    res.status(500).json({ error: "XUMM payload creation failed." });
   }
 };
