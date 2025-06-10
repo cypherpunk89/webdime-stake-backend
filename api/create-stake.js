@@ -1,6 +1,5 @@
 
 const { Xumm } = require('xumm-sdk');
-require('dotenv').config();
 
 const xumm = new Xumm(process.env.XUMM_API_KEY, process.env.XUMM_API_SECRET);
 
@@ -25,14 +24,15 @@ module.exports = async (req, res) => {
       }
     };
 
-    const response = await xumm.payload.create(payload);
+    const created = await xumm.payload.create(payload);
 
     res.status(200).json({
-      sign_url: response?.next?.always,
-      qr: response?.refs?.qr_png
+      next: created?.next?.always || null,
+      refs: created?.refs || null,
+      uuid: created?.uuid || null
     });
-  } catch (err) {
-    console.error("Payload creation error:", err.message);
-    res.status(500).json({ error: "XUMM payload creation failed." });
+  } catch (e) {
+    console.error("Fatal XUMM SDK Error:", e.message);
+    res.status(500).json({ error: "XUMM SDK failed to create payload.", detail: e.message });
   }
 };
