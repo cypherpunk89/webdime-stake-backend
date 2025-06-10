@@ -2,9 +2,7 @@
   "name": "webdime-stake-backend",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "start": "node api/create-stake.js"
-  },
+  "license": "MIT",
   "dependencies": {
     "xumm-sdk": "^1.12.0"
   }

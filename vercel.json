@@ -1,5 +1,5 @@
 {
-  "version": 2,
-  "builds": [{ "src": "api/create-stake.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/create-stake", "dest": "api/create-stake.js" }]
+  "routes": [
+    { "src": "/create-stake", "dest": "/api/create-stake.js" }
+  ]
 }

@@ -1,8 +1,7 @@
-import { Xumm } from 'xumm-sdk'
+const { Xumm } = require('xumm-sdk');
+const xumm = new Xumm(process.env.XUMM_API_KEY, process.env.XUMM_API_SECRET);
 
-const xumm = new Xumm(process.env.XUMM_API_KEY, process.env.XUMM_API_SECRET)
-
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   try {
     const payload = {
       txjson: {
@@ -21,20 +20,16 @@ export default async function handler(req, res) {
           }
         ]
       }
-    }
+    };
 
-    const created = await xumm.payload.create(payload)
-
-    return res.status(200).json({
+    const created = await xumm.payload.create(payload);
+    res.status(200).json({
       next: created?.next?.always || null,
       refs: created?.refs || null,
       uuid: created?.uuid || null
-    })
+    });
   } catch (e) {
-    console.error('Fatal XUMM SDK Error:', e.message)
-    return res.status(500).json({
-      error: 'XUMM SDK failed to create payload.',
-      detail: e.message
-    })
+    console.error("Fatal XUMM SDK Error:", e.message);
+    res.status(500).json({ error: "XUMM SDK failed to create payload.", detail: e.message });
   }
-}
+};
