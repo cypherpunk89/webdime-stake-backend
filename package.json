@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "xumm-sdk": "^2.1.0"
+    "xumm-sdk": "^2.0.1"
   }
 }
