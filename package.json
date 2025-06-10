@@ -2,8 +2,10 @@
   "name": "webdime-stake-backend",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
+  "scripts": {
+    "start": "vercel dev"
+  },
   "dependencies": {
-    "xumm-sdk": "^1.11.0"
+    "@xaman-app/sdk": "^1.0.0"
   }
 }

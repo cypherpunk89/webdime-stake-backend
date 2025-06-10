@@ -1,5 +1,6 @@
-const { Xumm } = require('xumm-sdk');
-const xumm = new Xumm(process.env.XUMM_API_KEY, process.env.XUMM_API_SECRET);
+const { XummSdk } = require('@xaman-app/sdk');
+
+const xumm = new XummSdk(process.env.XUMM_API_KEY, process.env.XUMM_API_SECRET);
 
 module.exports = async (req, res) => {
   try {
@@ -30,7 +31,7 @@ module.exports = async (req, res) => {
       uuid: created?.uuid || null
     });
   } catch (e) {
-    console.error("Fatal XUMM SDK Error:", e.message);
-    res.status(500).json({ error: "XUMM SDK failed to create payload.", detail: e.message });
+    console.error("Fatal Xaman SDK Error:", e.message);
+    res.status(500).json({ error: "Xaman SDK failed to create payload.", detail: e.message });
   }
 };
