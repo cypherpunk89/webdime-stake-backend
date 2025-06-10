@@ -23,6 +23,7 @@ module.exports = async (req, res) => {
     };
 
     const created = await xumm.payload.create(payload);
+
     res.status(200).json({
       next: created?.next?.always || null,
       refs: created?.refs || null,
