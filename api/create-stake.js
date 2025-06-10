@@ -1,5 +1,5 @@
 
-const { Xumm } = require('xumm');
+const { Xumm } = require('xumm-sdk');
 require('dotenv').config();
 
 const xumm = new Xumm(process.env.XUMM_API_KEY, process.env.XUMM_API_SECRET);

@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "dotenv": "^16.0.0",
-    "xumm": "^2.0.0"
+    "xumm-sdk": "^1.0.0"
   }
 }
