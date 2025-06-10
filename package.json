@@ -1,0 +1,12 @@
+{
+  "name": "webdime-stake-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "xumm": "^2.0.0"
+  }
+}
